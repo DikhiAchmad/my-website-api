@@ -1,21 +1,118 @@
-import { postsResponse, PostsResponse } from '../schema/posts/response.schema';
+import { destroyPostsResponse, getPostsResponse, showPostsResponse, storePostsResponse, updatePostsResponse } from '../schema/posts/response.schema';
+import { StorePostsRequest, UpdatePostsRequest } from '../schema/posts/request.schema';
 import prisma from '../utils/prisma.utils';
 
 export default class PostsService {
-    async get(): Promise<postsResponse> {
-        const posts = await prisma.posts.findMany(
-            {
-                select: {
-                    title: true,
-                    content: true,
-                    user: {
-                        select: {
-                            name: true
-                        }
+    async getPosts(): Promise<getPostsResponse> {
+        const posts = await prisma.posts.findMany({
+            select: {
+                id: true,
+                title: true,
+                content: true,
+                user: {
+                    select: {
+                        name: true
                     }
-                }
+                },
+                createdAt: true,
+                updatedAt: true
             }
-        );
+        });
+        return posts;
+    }
+
+    async storePosts(id_profile: string, data: StorePostsRequest): Promise<storePostsResponse> {
+        const posts = await prisma.posts.create({
+            data: {
+                title: data.title,
+                content: data.content,
+                userId: id_profile
+            },
+            select: {
+                id: true,
+                title: true,
+                content: true,
+                user: {
+                    select: {
+                        id: true,
+                        name: true
+                    }
+                },
+                createdAt: true,
+                updatedAt: true
+            }
+        })
+        return posts;
+    }
+
+    async showPosts(id: string): Promise<showPostsResponse> {
+        const posts = await prisma.posts.findUnique({
+            where: {
+                id: id
+            },
+            select: {
+                id: true,
+                title: true,
+                content: true,
+                user: {
+                    select: {
+                        id: true,
+                        name: true
+                    }
+                },
+                createdAt: true,
+                updatedAt: true
+            }
+        });
+        return posts;
+    }
+
+    async updatePosts(id: string, id_profile: string, data: UpdatePostsRequest): Promise<updatePostsResponse> {
+        const posts = await prisma.posts.update({
+            where: {
+                id: id
+            },
+            data: {
+                title: data.title,
+                content: data.content,
+                userId: id_profile
+            },
+            select: {
+                id: true,
+                title: true,
+                content: true,
+                user: {
+                    select: {
+                        id: true,
+                        name: true
+                    }
+                },
+                createdAt: true,
+                updatedAt: true
+            }
+        })
+        return posts;
+    }
+
+    async destroyPosts(id: string): Promise<destroyPostsResponse> {
+        const posts = await prisma.posts.delete({
+            where: {
+                id: id
+            },
+            select: {
+                id: true,
+                title: true,
+                content: true,
+                user: {
+                    select: {
+                        id: true,
+                        name: true
+                    }
+                },
+                createdAt: true,
+                updatedAt: true
+            }
+        })
         return posts;
     }
 }

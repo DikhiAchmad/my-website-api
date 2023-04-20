@@ -1,10 +1,10 @@
-import { type Request, type Response } from "express";
+import { Request, Response } from "express";
 import { inject, injectable } from "tsyringe";
 import { StatusCodes } from "http-status-codes";
 import AuthService from "../service/auth.service";
 import { wrapError } from "../utils/wrap-error.utils";
 import { authRequest } from "../schema/auth/request.shema";
-import { authResponse, AuthResponse } from '../schema/auth/response.schema';
+import { AuthResponse } from '../schema/auth/response.schema';
 
 @injectable()
 export default class AuthController {

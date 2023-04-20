@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
 import { AuthRequest } from '../schema/auth/request.shema';
 import { authResponse } from '../schema/auth/response.schema';
-import { accessTokenUtils, refreshTokenUtils } from '../utils/jwt.utils';
+import { generateAccessToken, generateRefreshToken } from '../utils/jwt.utils';
 import prisma from '../utils/prisma.utils';
 
 export default class AuthService {
@@ -21,13 +21,13 @@ export default class AuthService {
         const isValidPassword = await bcrypt.compare(data.password, user.password!);
         if (!isValidPassword) throw new Error("Invalid password");
 
-        const accessToken = await accessTokenUtils({
+        const accessToken = await generateAccessToken({
             id: user.id,
             email: user.email,
             name: user.name
         });
 
-        const refreshToken = await refreshTokenUtils({
+        const refreshToken = await generateRefreshToken({
             id: user.id,
             email: user.email,
             name: user.name
