@@ -17,7 +17,7 @@ export function authMiddleware() {
             try {
                 const token = tokenWithBearer.split(" ")[1];
                 const decoded = await jwt.verify(token, process.env.JWT_SECRET_KEY!);
-
+                
                 res.locals.token = decoded;
                 next();
             } catch (error) {

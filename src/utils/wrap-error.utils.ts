@@ -1,6 +1,5 @@
-import { type Response } from "express";
 import { ZodError } from "zod";
-import 'dotenv/config';
+import { Response } from "express";
 import { StatusCodes } from 'http-status-codes';
 
 export const wrapError = async (res: Response, process: Function) => {

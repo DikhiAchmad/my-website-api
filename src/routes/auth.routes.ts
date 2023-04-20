@@ -1,5 +1,5 @@
-import { Router, NextFunction, Request, Response } from "express";
 import { container } from "tsyringe";
+import { Router, Request, Response } from "express";
 import AuthController from "../controllers/auth.controller";
 
 const authRoutes = Router();
