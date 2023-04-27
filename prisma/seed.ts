@@ -1,10 +1,11 @@
 import { PrismaClient } from "@prisma/client";
+import categoriesSeeder from "./seeders/categories.seeder";
 import postsSeeder from "./seeders/posts.seeder";
 import userSeeder from "./seeders/user.seeder";
 
 const prisma = new PrismaClient();
 
-Promise.all([userSeeder(), postsSeeder()])
+Promise.all([userSeeder(), categoriesSeeder(), postsSeeder()])
     .then(async () => {
         await prisma.$disconnect();
     })

@@ -9,6 +9,12 @@ export default class PostsService {
                 id: true,
                 title: true,
                 content: true,
+                status: true,
+                categories: {
+                    select: {
+                        nameCategories: true
+                    }
+                },
                 user: {
                     select: {
                         name: true
@@ -26,15 +32,22 @@ export default class PostsService {
             data: {
                 title: data.title,
                 content: data.content,
-                userId: id_profile
+                status: data.status,
+                createdBy: id_profile,
+                category: data.category
             },
             select: {
                 id: true,
                 title: true,
                 content: true,
+                status: true,
+                categories: {
+                    select: {
+                        nameCategories: true
+                    }
+                },
                 user: {
                     select: {
-                        id: true,
                         name: true
                     }
                 },
@@ -46,7 +59,7 @@ export default class PostsService {
     }
 
     async showPosts(id: string): Promise<showPostsResponse> {
-        const posts = await prisma.posts.findUnique({
+        const posts = await prisma.posts.findUniqueOrThrow({
             where: {
                 id: id
             },
@@ -54,9 +67,14 @@ export default class PostsService {
                 id: true,
                 title: true,
                 content: true,
+                status: true,
+                categories: {
+                    select: {
+                        nameCategories: true
+                    }
+                },
                 user: {
                     select: {
-                        id: true,
                         name: true
                     }
                 },
@@ -75,15 +93,22 @@ export default class PostsService {
             data: {
                 title: data.title,
                 content: data.content,
-                userId: id_profile
+                status: data.status,
+                createdBy: id_profile,
+                category: data.category
             },
             select: {
                 id: true,
                 title: true,
                 content: true,
+                status: true,
+                categories: {
+                    select: {
+                        nameCategories: true
+                    }
+                },
                 user: {
                     select: {
-                        id: true,
                         name: true
                     }
                 },
@@ -103,9 +128,14 @@ export default class PostsService {
                 id: true,
                 title: true,
                 content: true,
+                status: true,
+                categories: {
+                    select: {
+                        nameCategories: true
+                    }
+                },
                 user: {
                     select: {
-                        id: true,
                         name: true
                     }
                 },

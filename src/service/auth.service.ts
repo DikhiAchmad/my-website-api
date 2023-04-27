@@ -6,7 +6,7 @@ import prisma from '../utils/prisma.utils';
 
 export default class AuthService {
     async login(data: AuthRequest): Promise<authResponse> {
-        const user = await prisma.user.findUnique({
+        const user = await prisma.user.findUniqueOrThrow({
             where: { email: data.email },
             select: {
                 id: true,

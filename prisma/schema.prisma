@@ -11,23 +11,39 @@ datasource db {
 }
 
 model User {
-  id         String  @id @unique @default(uuid())
-  email      String  @unique
-  name       String
-  password   String
+  id       String @id @unique @default(uuid())
+  email    String @unique
+  name     String
+  password String
 
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   posts     Posts[]
 }
 
 model Posts {
-  id         String   @id @unique @default(uuid())
-  user       User     @relation(fields: [userId], references: [id])
-  userId     String   
+  id         String     @id @unique @default(uuid())
   title      String
   content    String
+  status     Status     @default(draft)
+  category   String
+  categories Categories @relation(fields: [category], references: [id])
+  createdBy  String
+  user       User       @relation(fields: [createdBy], references: [id])
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
 
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+enum Status {
+  publish
+  draft
+}
+
+model Categories {
+  id             String @id @unique @default(uuid())
+  nameCategories String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Posts     Posts[]
 }

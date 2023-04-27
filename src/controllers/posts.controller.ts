@@ -25,8 +25,8 @@ export default class PostsController {
     async store(req: Request, res: Response) {
         await wrapError(res,async () => {
             const get_profil = await userProfile(req);
-            const data = storePostsRequest.parse(req.body);
-            const store_data = await this.service.storePosts(get_profil.id, data);
+            // const data = storePostsRequest.parse(req.body);
+            const store_data = await this.service.storePosts(get_profil.id, req.body);
             const store_response: StorePostsResponse = {
                 message: "Post data has been saved!",
                 data: store_data
@@ -50,12 +50,13 @@ export default class PostsController {
     async update(req: Request, res: Response) {
         await wrapError(res,async () => {
             const params_id = req.params.id;
-
             const get_profil = await userProfile(req);
             const data = updatePostsRequest.parse({
                 id: params_id,
                 title: req.body.title,
-                content: req.body.content
+                content: req.body.content,
+                category: req.body.category,
+                status: req.body.status
             });
             const update_data = await this.service.updatePosts(params_id, get_profil.id, data);
             const update_response : UpdatePostsResponse = {

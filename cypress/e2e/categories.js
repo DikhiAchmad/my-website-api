@@ -16,17 +16,17 @@ it('must be able to log in', () => {
   cy.login('dani@ilustiva.com', 'mypassword')
 })
 
-describe('testing API posts', () => {
+describe('testing API categories', () => {
   beforeEach(() => {
     cy.login('dani@ilustiva.com', 'mypassword');
   });
 
-  it('get all Request posts', () => {
+  it('get all Request categories', () => {
     const token = Cypress.env('token');
     const authorization = `bearer ${token}`;
     const options = {
       method: 'GET',
-      url: `posts/`,
+      url: `categories/`,
       headers: {
         authorization,
       }
@@ -37,67 +37,51 @@ describe('testing API posts', () => {
       .should('eq', 200);
   })
 
-  it('store request posts', () => {
+  it('store request categories', () => {
     const token = Cypress.env('token');
     const authorization = `bearer ${token}`;
     const options = {
       method: 'POST',
-      url: `posts/`,
+      url: `categories/`,
       headers: {
         authorization,
       },
       body: {
-        title: "hello",
-        content: "mamang"
+        nameCategories: "nft"
       }
     };
     cy.request(options)
-    .as('storeResponse')
+      .as('storeResponse')
       .then((response) => {
-        Cypress.env('storePost', response.body.data.id);
+        Cypress.env('storeCategory', response.body.data.id);
         return response;
       })
   })
- 
-  it('update request posts', () => {
+
+  it('update request categories', () => {
     const token = Cypress.env('token');
-    const store_posts = Cypress.env('storePost');
+    const store_categories = Cypress.env('storeCategory');
     const authorization = `bearer ${token}`;
     const options = {
       method: 'PUT',
-      url: `posts/${store_posts}`,
+      url: `categories/${store_categories}`,
       headers: {
         authorization,
       },
       body: {
-        title: "babang tampav",
-        content: "mamang"
+        nameCategories: "nft"
       }
     };
     cy.request(options)
   })
-  
-  it('show detail request posts', () => {
+
+  it('delete categories', () => {
     const token = Cypress.env('token');
-    const store_posts = Cypress.env('storePost');
-    const authorization = `bearer ${token}`;
-    const options = {
-      method: 'GET',
-      url: `posts/${store_posts}`,
-      headers: {
-        authorization,
-      }
-    };
-    cy.request(options)
-  })
-  
-  it('delete posts', () => {
-    const token = Cypress.env('token');
-    const store_posts = Cypress.env('storePost');
+    const store_posts = Cypress.env('storeCategory');
     const authorization = `bearer ${token}`;
     const options = {
       method: 'DELETE',
-      url: `posts/${store_posts}`,
+      url: `categories/${store_posts}`,
       headers: {
         authorization,
       }
