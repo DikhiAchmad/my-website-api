@@ -7,3 +7,5 @@ karena dapat membantu mengelola ketergantungan antar modul. Biasanya, modul di N
 Selain itu juga, memungkinkan untuk memisahkan logika aplikasi dari detail teknis implementasi seperti mengakses/mengelola data dari database. Dengan cara ini, modul dapat lebih fokus pada tugas utama mereka dan lebih mudah buat di maintenance.
 
 Secara umum, penggunaan depedency injection dapat membantu untuk memperbaiki kualitas dan fleksibilitas kode program. Ini dapat membantu menghindari beberapa masalah yang terkait dengan ketergantungan antar modul dan membuat aplikasi yang dibuat menjadi lebih mudah dipelihara dan dikembangkan.
+
+pada intinya adalah proses pemisahan komponen berdasarkan tanggung jawab masing- masing dengan tujuan menjadi lebih mudah.
