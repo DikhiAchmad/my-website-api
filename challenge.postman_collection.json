@@ -1,0 +1,369 @@
+{
+	"info": {
+		"_postman_id": "19130970-4b7a-49ea-bf61-496605c4957e",
+		"name": "challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"dani@ilustiva.com\",\r\n    \"password\": \"mypassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "posts",
+			"item": [
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFkOGVlODk0LTE5NjgtNGJhMy1iZjg1LTk2ZTcxYTY3ODAyOCIsImVtYWlsIjoiZGFuaUBpbHVzdGl2YS5jb20iLCJuYW1lIjoiZGFuaSIsImlhdCI6MTY4MTkxNjIwOCwiZXhwIjoxNjgyMDAyNjA4fQ.JGFKvzrlHFIJQQbfpmRNC0wl0aA4P0PQsvSENF_RI58",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"hello\",\r\n    \"content\": \"paklek\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFkOGVlODk0LTE5NjgtNGJhMy1iZjg1LTk2ZTcxYTY3ODAyOCIsImVtYWlsIjoiZGFuaUBpbHVzdGl2YS5jb20iLCJuYW1lIjoiZGFuaSIsImlhdCI6MTY4MTkxNjIwOCwiZXhwIjoxNjgyMDAyNjA4fQ.JGFKvzrlHFIJQQbfpmRNC0wl0aA4P0PQsvSENF_RI58",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"hello\",\r\n    \"content\": \"paklek\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/posts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFkOGVlODk0LTE5NjgtNGJhMy1iZjg1LTk2ZTcxYTY3ODAyOCIsImVtYWlsIjoiZGFuaUBpbHVzdGl2YS5jb20iLCJuYW1lIjoiZGFuaSIsImlhdCI6MTY4MTkxNjIwOCwiZXhwIjoxNjgyMDAyNjA4fQ.JGFKvzrlHFIJQQbfpmRNC0wl0aA4P0PQsvSENF_RI58",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"medium\",\r\n    \"content\": \"make it better\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/posts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFkOGVlODk0LTE5NjgtNGJhMy1iZjg1LTk2ZTcxYTY3ODAyOCIsImVtYWlsIjoiZGFuaUBpbHVzdGl2YS5jb20iLCJuYW1lIjoiZGFuaSIsImlhdCI6MTY4MTkxNjIwOCwiZXhwIjoxNjgyMDAyNjA4fQ.JGFKvzrlHFIJQQbfpmRNC0wl0aA4P0PQsvSENF_RI58",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/posts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFkOGVlODk0LTE5NjgtNGJhMy1iZjg1LTk2ZTcxYTY3ODAyOCIsImVtYWlsIjoiZGFuaUBpbHVzdGl2YS5jb20iLCJuYW1lIjoiZGFuaSIsImlhdCI6MTY4MTkxNjIwOCwiZXhwIjoxNjgyMDAyNjA4fQ.JGFKvzrlHFIJQQbfpmRNC0wl0aA4P0PQsvSENF_RI58",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"hello\",\r\n    \"content\": \"paklek\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFkOGVlODk0LTE5NjgtNGJhMy1iZjg1LTk2ZTcxYTY3ODAyOCIsImVtYWlsIjoiZGFuaUBpbHVzdGl2YS5jb20iLCJuYW1lIjoiZGFuaSIsImlhdCI6MTY4MTkxNjIwOCwiZXhwIjoxNjgyMDAyNjA4fQ.JGFKvzrlHFIJQQbfpmRNC0wl0aA4P0PQsvSENF_RI58",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"hello\",\r\n    \"content\": \"paklek\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/posts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFkOGVlODk0LTE5NjgtNGJhMy1iZjg1LTk2ZTcxYTY3ODAyOCIsImVtYWlsIjoiZGFuaUBpbHVzdGl2YS5jb20iLCJuYW1lIjoiZGFuaSIsImlhdCI6MTY4MTkxNjIwOCwiZXhwIjoxNjgyMDAyNjA4fQ.JGFKvzrlHFIJQQbfpmRNC0wl0aA4P0PQsvSENF_RI58",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"medium\",\r\n    \"content\": \"make it better\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/posts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFkOGVlODk0LTE5NjgtNGJhMy1iZjg1LTk2ZTcxYTY3ODAyOCIsImVtYWlsIjoiZGFuaUBpbHVzdGl2YS5jb20iLCJuYW1lIjoiZGFuaSIsImlhdCI6MTY4MTkxNjIwOCwiZXhwIjoxNjgyMDAyNjA4fQ.JGFKvzrlHFIJQQbfpmRNC0wl0aA4P0PQsvSENF_RI58",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/posts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
