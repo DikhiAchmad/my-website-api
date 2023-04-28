@@ -8,4 +8,4 @@ Selain itu juga, memungkinkan untuk memisahkan logika aplikasi dari detail tekni
 
 Secara umum, penggunaan depedency injection dapat membantu untuk memperbaiki kualitas dan fleksibilitas kode program. Ini dapat membantu menghindari beberapa masalah yang terkait dengan ketergantungan antar modul dan membuat aplikasi yang dibuat menjadi lebih mudah dipelihara dan dikembangkan.
 
-pada intinya adalah proses pemisahan komponen berdasarkan tanggung jawab masing- masing dengan tujuan menjadi lebih mudah.
+pada intinya adalah proses pemisahan komponen berdasarkan tanggung jawab masing- masing dengan tujuan menjadi lebih mudah dibaca.
